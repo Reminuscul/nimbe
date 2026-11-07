@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check the version matches the tag
+        run: |
+          version=$(grep -m1 '^version' horizon-shaders.toml | cut -d'"' -f2)
+          test "v$version" = "$GITHUB_REF_NAME" || { echo "horizon-shaders.toml says $version, tag is $GITHUB_REF_NAME"; exit 1; }
+      - name: Build the pack
+        run: ./scripts/package.sh
+      - name: Publish the release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/nimbe.hshader
+          generate_release_notes: true
