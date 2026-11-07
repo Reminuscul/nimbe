@@ -1,9 +1,9 @@
 # Nimbe
 
-**An original shader pack for [Horizon](https://github.com/ludovic111/horizon)**, the Rust rewrite of Minecraft: Java Edition.
+**An original shader pack for [Horizon](https://github.com/horizon-rust/horizon)**, the Rust rewrite of Minecraft: Java Edition.
 Nimbe is written in Horizon's native WGSL shader format (`horizon-shaders.toml`, shader API 0.1).
 
-![Sunset over the lake](docs/screenshots/sunset.png)
+![Iron golem in a savanna village](docs/screenshots/1794065238817_2026-11-07_15.36.54.png)
 
 ## Features
 
@@ -30,10 +30,16 @@ Nimbe is written in Horizon's native WGSL shader format (`horizon-shaders.toml`,
 
 Every effect can be tuned from the pack's menu.
 
-| | |
-|---|---|
-| ![Day](docs/screenshots/day.png) | ![Shallow water](docs/screenshots/shallows.png) |
-| ![Reflections](docs/screenshots/reflections.png) | ![Night sky](docs/screenshots/night.png) |
+## Screenshots
+
+<p>
+  <img src="docs/screenshots/1794065188637_2026-11-07_15.30.28.png" width="49%">
+  <img src="docs/screenshots/1794065263341_2026-11-07_15.39.45.png" width="49%">
+  <img src="docs/screenshots/1794065152779_2026-11-07_15.26.40.png" width="49%">
+  <img src="docs/screenshots/1794065229940_2026-11-07_15.36.16.png" width="49%">
+  <img src="docs/screenshots/1794065216150_2026-11-07_15.33.16.png" width="49%">
+  <img src="docs/screenshots/1794065244815_2026-11-07_15.38.05.png" width="49%">
+</p>
 
 ## Install
 
