@@ -1,0 +1,4 @@
+dist/
+*.hshader
+.DS_Store
+Thumbs.db
