@@ -1,0 +1,28 @@
+# One-off: unpacks the sources uploaded as nimbe-github.zip. Deleted once done.
+name: Unpack
+on:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack
+        run: |
+          test -f nimbe-github.zip || exit 0
+          unzip -q nimbe-github.zip -d "$RUNNER_TEMP/u"
+          cd "$RUNNER_TEMP/u/nimbe-github"
+          rm -rf .github docs
+          cp -a . "$GITHUB_WORKSPACE/"
+          cd "$GITHUB_WORKSPACE"
+          git rm -q nimbe-github.zip
+          chmod +x scripts/package.sh
+          git add -A
+          git update-index --chmod=+x scripts/package.sh
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Add the Nimbe 1.0.0 sources"
+          git push
